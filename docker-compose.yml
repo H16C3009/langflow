@@ -1,0 +1,13 @@
+version: '3'
+services:
+  langchain:
+    restart: always
+    build: .
+    container_name: 'langchain'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+      - ./src:/root/src
+    ports:
+      - "7860:7860"
+    command: langflow --host 0.0.0.0 --port 7860 
